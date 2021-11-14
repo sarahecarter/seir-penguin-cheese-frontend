@@ -37,11 +37,12 @@ function Index(props) {
     // form JSX
     const form = (
         <form onSubmit={handleSubmit}>
+            <legend>Add a New Cheese:</legend>
             <input
                 type="text"
                 value={newForm.name}
                 name="name"
-                placeholder="name"
+                placeholder="Name"
                 onChange={handleChange}
             />
             <input
@@ -64,13 +65,16 @@ function Index(props) {
 
     // loaded function
     const loaded = () => {
-        return props.cheese.map((cheese) => (
+        return <div className="index-container">
+            {props.cheese.map((cheese) => (
         <div key={cheese._id} className="cheese">
             <Link to={`/cheese/${cheese._id}`}><h1>{cheese.name}</h1></Link>
             <img src={cheese.image} alt={cheese.name} />
             <h3>{cheese.countryOfOrigin}</h3>
         </div>
-        ));
+        ))}
+        </div>
+        
     };
 
     const loading = () => {

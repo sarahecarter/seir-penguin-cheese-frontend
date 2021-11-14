@@ -1,8 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
 // --------------------------
 // VARIABLES
 // --------------------------
-$maincolor: black;
+$maincolor: rgb(55, 71, 165);
 $contrastcolor: white;
+$titlefont: 'Playfair Display', serif;
+$bodyfont: 'Barlow', sans-serif;
+
+@mixin title-font {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+@mixin body-font {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
 
 @mixin white-text-black-bg {
   color: $contrastcolor;
@@ -15,19 +29,126 @@ $contrastcolor: white;
 }
 
 // --------------------------
+// Body/ Main Styles
+// --------------------------
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include body-font;
+  text-align: center;
+}
+
+a {
+  color: $maincolor;
+  text-decoration: none;
+}
+
+// --------------------------
 // Header
 // --------------------------
 
 nav {
   @include white-text-black-bg;
+  @include title-font;
   display: flex;
   justify-content: flex-start;
 
   a {
     @include white-text-black-bg;
+    text-decoration: none;
     div {
       margin: 10px;
       font-size: large;
     }
+  }
+}
+
+// --------------------------
+// Main
+// --------------------------
+img {
+  width: 290px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.cheese {
+  margin: 10px 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: $maincolor;
+  color: $contrastcolor;
+}
+
+.cheese a {
+  color: $contrastcolor;
+}
+
+.cheese h1 {
+  margin: 10px;
+}
+
+.index-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+input {
+  margin: 5px;
+  padding: 10px;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+input[type="submit"], button {
+  width: 40%;
+  background-color: $maincolor;
+  color: $contrastcolor;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+// --------------------------
+// Show
+// --------------------------
+h1, h2 {
+  margin: 5px;
+}
+
+// --------------------------
+// Media Queries
+// --------------------------
+@media screen and (min-width: 768px) {
+  input {
+    width: 50%;
+  }
+
+  input[type="submit"], button {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  input {
+    width: 30%;
+  }
+
+  input[type="submit"], button {
+    width: 15%;
   }
 }

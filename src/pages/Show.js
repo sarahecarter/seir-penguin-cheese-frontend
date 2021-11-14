@@ -55,6 +55,7 @@ function Show(props) {
   // form JSX
   const form = (
     <form onSubmit={handleSubmit}>
+      <legend>Edit Cheese:</legend>
         <input
             type="text"
             value={editForm.name}
@@ -81,7 +82,7 @@ function Show(props) {
     )
 
     return (
-      <div className="cheese">
+      <div className="cheeseShow">
         <h1>{targetCheese.name}</h1>
         <h2>{targetCheese.countryOfOrigin}</h2>
         <img src={targetCheese.image} alt={targetCheese.name}/>
